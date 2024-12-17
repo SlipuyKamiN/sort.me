@@ -1,5 +1,5 @@
 const App = () => {
-  return <div>My React App</div>;
+  return <div>My SORT.ME</div>;
 };
 
 export default App;
