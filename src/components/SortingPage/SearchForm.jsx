@@ -46,7 +46,7 @@ export const SearchForm = ({ getParcel }) => {
             handleSubmit(handleFormSubmit)();
           }
         }}
-        onKeyDown={() => {
+        onPaste={() => {
           if (getValues('parcelID').length >= 14) {
             handleSubmit(handleFormSubmit)();
           }
