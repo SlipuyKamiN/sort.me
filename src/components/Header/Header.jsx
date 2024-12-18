@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { Header, LogoLink } from './Header.styled';
 import { useParcels } from 'context/ParcelsContext';
 

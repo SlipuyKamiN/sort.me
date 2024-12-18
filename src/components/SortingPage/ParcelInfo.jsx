@@ -1,10 +1,4 @@
-import {
-  DriverName,
-  DriverNameLabel,
-  DriverNameTitle,
-  ParcelInfoSection,
-  ParcelTitle,
-} from './ParcelInfo.styled';
+import { DriverName, DriverNameLabel, ParcelTitle } from './ParcelInfo.styled';
 
 export const ParcelInfo = ({ currentParcel }) => {
   return (
