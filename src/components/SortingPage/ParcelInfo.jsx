@@ -1,13 +1,22 @@
+import {
+  DriverName,
+  DriverNameLabel,
+  DriverNameTitle,
+  ParcelInfoSection,
+  ParcelTitle,
+} from './ParcelInfo.styled';
+
 export const ParcelInfo = ({ currentParcel }) => {
   return (
-    <div>
-      <h2>
-        ШК:<span>{currentParcel['Visit Name'] || '-'}</span>
-      </h2>
-      <h1>
-        Кур'єр:<span>{currentParcel['Driver Name'] || '-'} </span>
-      </h1>
+    <section>
+      <ParcelTitle>
+        ШК: <span> {currentParcel['Visit Name'] || '-'}</span>
+      </ParcelTitle>
+      <DriverNameLabel>
+        <span>Кур'єр: </span>
+        <DriverName> {currentParcel['Driver Name'] || '-'} </DriverName>
+      </DriverNameLabel>
       {/* <p>Знайдено: "counter"</p> */}
-    </div>
+    </section>
   );
 };

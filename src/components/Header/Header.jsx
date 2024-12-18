@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Header } from './Header.styled';
+import { Header, LogoLink } from './Header.styled';
 import { useParcels } from 'context/ParcelsContext';
 
 export const PageHeader = () => {
@@ -8,9 +8,9 @@ export const PageHeader = () => {
 
   return (
     <Header>
-      <NavLink to="/" onClick={() => setCityID('')}>
+      <LogoLink to="/" onClick={() => setCityID('')}>
         SORT.{selectedCityData?.cityName || 'ME'}
-      </NavLink>
+      </LogoLink>
     </Header>
   );
 };

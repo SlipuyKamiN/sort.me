@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ParcelInfo } from './ParcelInfo';
 import { SearchForm } from './SearchForm';
 import { useParcels } from 'context/ParcelsContext';
+import { SortingPageContainer } from './SortingPage.styled';
 
 export const SortingPage = () => {
   const { allParcels } = useParcels();
@@ -16,9 +17,9 @@ export const SortingPage = () => {
   };
 
   return (
-    <section>
+    <SortingPageContainer>
       <ParcelInfo currentParcel={currentParcel || ''} />
       <SearchForm getParcel={getParcel} />
-    </section>
+    </SortingPageContainer>
   );
 };
