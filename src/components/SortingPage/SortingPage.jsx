@@ -10,6 +10,7 @@ export const SortingPage = () => {
 
   const getParcel = parcelID => {
     const parcel = allParcels.find(parcel => parcel['Visit Name'] === parcelID);
+    console.log(parcel);
 
     setCurrentParcel(
       parcel || { 'Visit Name': parcelID, 'Driver Name': 'Немає в маршруті' }

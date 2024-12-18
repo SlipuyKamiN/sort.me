@@ -9,6 +9,7 @@ import {
   SearchFormWrapper,
 } from './SearchForm.styled';
 import { useParcels } from 'context/ParcelsContext';
+import { useEffect } from 'react';
 
 const validationSchema = yup.object().shape({
   parcelID: yup.string(),
@@ -17,7 +18,7 @@ const validationSchema = yup.object().shape({
 export const SearchForm = ({ getParcel }) => {
   const { selectedCityData, setCityID } = useParcels();
 
-  const { register, handleSubmit, reset } = useForm({
+  const { register, handleSubmit, reset, getValues, setFocus } = useForm({
     resolver: yupResolver(validationSchema),
   });
 
@@ -26,14 +27,28 @@ export const SearchForm = ({ getParcel }) => {
     reset();
   };
 
+  useEffect(() => {
+    setFocus('parcelID');
+  }, [setFocus]);
+
   return (
     <SearchFormWrapper
       autoComplete="off"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       <label htmlFor="parcelID">Відскануйте ШК:</label>
-      <FormInput type="text" {...register('parcelID')} id="parcelID" required />
-
+      <FormInput
+        type="text"
+        {...register('parcelID')}
+        id="parcelID"
+        onInput={() => {
+          if (getValues('parcelID').length === 14) {
+            handleSubmit(handleFormSubmit);
+          }
+        }}
+        required
+        autoFocus
+      />
       <ButtonsListWrapper>
         <li>
           <RefreshButton
