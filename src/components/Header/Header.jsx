@@ -1,21 +1,16 @@
-import { NavLink, useParams } from 'react-router-dom';
-import { Header, HeaderBtnsList } from './Header.styled';
+import { NavLink } from 'react-router-dom';
+import { Header } from './Header.styled';
+import { useParcels } from 'context/ParcelsContext';
 
 export const PageHeader = () => {
-  const { cityName } = useParams();
+  const { selectedCityData, setCityID } = useParcels();
+  // console.log(selectedCityData);
 
   return (
     <Header>
-      <HeaderBtnsList>
-        <li>
-          <NavLink to={cityName ? `sorting/${cityName}` : '/'}>
-            SORT.{cityName || 'ME'}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-      </HeaderBtnsList>
+      <NavLink to="/" onClick={() => setCityID('')}>
+        SORT.{selectedCityData?.cityName || 'ME'}
+      </NavLink>
     </Header>
   );
 };

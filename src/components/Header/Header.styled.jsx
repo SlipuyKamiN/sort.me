@@ -4,6 +4,7 @@ export const Header = styled.header`
   position: fixed;
   z-index: 10;
   width: 100%;
+  text-transform: uppercase;
 
   padding: 20px;
 
@@ -14,6 +15,4 @@ export const HeaderBtnsList = styled.ul`
   display: flex;
   justify-content: center;
   gap: 50px;
-
-  text-transform: uppercase;
 `;
