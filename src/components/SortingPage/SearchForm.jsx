@@ -41,11 +41,17 @@ export const SearchForm = ({ getParcel }) => {
         type="text"
         {...register('parcelID')}
         id="parcelID"
-        onInput={() => {
-          if (getValues('parcelID').length === 14) {
-            handleSubmit(handleFormSubmit);
+        onKeyUp={() => {
+          if (getValues('parcelID').length >= 14) {
+            handleSubmit(handleFormSubmit)();
           }
         }}
+        onKeyDown={() => {
+          if (getValues('parcelID').length >= 14) {
+            handleSubmit(handleFormSubmit)();
+          }
+        }}
+        maxLength={14}
         required
         autoFocus
       />
