@@ -19,6 +19,7 @@ export const CityList = styled.ul`
 
 export const CityLink = styled(Link)`
   display: block;
+  margin: 0 auto;
   cursor: pointer;
 
   width: 100%;
