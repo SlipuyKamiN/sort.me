@@ -22,6 +22,7 @@ export const CityLink = styled(Link)`
   cursor: pointer;
 
   width: 100%;
+  max-width: 340px;
 
   padding: 10px;
   border: 1px solid #0a0a11;
