@@ -13,7 +13,6 @@ export const FormInput = styled.input`
   padding: 10px;
 
   font-size: 18px;
-  font-weight: 600;
 
   border-radius: 6px;
   border: 2px solid #000000;
