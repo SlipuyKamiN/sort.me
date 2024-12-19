@@ -12,19 +12,20 @@ import { useParcels } from 'context/ParcelsContext';
 import { useEffect } from 'react';
 
 const validationSchema = yup.object().shape({
-  parcelID: yup.string(),
+  parcelID: yup.string().required(),
 });
 
 export const SearchForm = ({ getParcel }) => {
   const { selectedCityData, setCityID } = useParcels();
 
-  const { register, handleSubmit, reset, getValues, setFocus } = useForm({
-    resolver: yupResolver(validationSchema),
-  });
+  const { register, handleSubmit, reset, setFocus, control, setValue } =
+    useForm({
+      resolver: yupResolver(validationSchema),
+    });
 
   const handleFormSubmit = ({ parcelID }) => {
-    getParcel(parcelID);
-    reset();
+    getParcel(parcelID.trim());
+    setTimeout(reset, 100);
   };
 
   useEffect(() => {
@@ -34,24 +35,36 @@ export const SearchForm = ({ getParcel }) => {
   return (
     <SearchFormWrapper
       autoComplete="off"
+      control={control}
       onSubmit={handleSubmit(handleFormSubmit)}
     >
-      <label htmlFor="parcelID">Відскануйте ШК:</label>
+      {/* <label htmlFor="parcelID">Відскануйте ШК:</label> */}
       <FormInput
         type="text"
         {...register('parcelID')}
         id="parcelID"
-        onKeyUp={() => {
-          if (getValues('parcelID').length >= 14) {
+        onInput={e => {
+          setValue('parcelID', e.target.value);
+          if (e.target.value.length >= 14) {
             handleSubmit(handleFormSubmit)();
           }
         }}
-        onPaste={() => {
-          if (getValues('parcelID').length >= 14) {
+        onKeyUp={e => {
+          setValue('parcelID', e.target.value);
+
+          if (e.target.value.length >= 14) {
+            handleSubmit(handleFormSubmit)();
+          }
+        }}
+        onPaste={e => {
+          setValue('parcelID', e.target.value);
+
+          if (e.target.value.length >= 14) {
             handleSubmit(handleFormSubmit)();
           }
         }}
         maxLength={14}
+        placeholder="Відскануйте ШК"
         required
         autoFocus
       />

@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
+import { Form } from 'react-hook-form';
 import { colors, transition } from 'styles/common/vars';
 
-export const SearchFormWrapper = styled.form`
+export const SearchFormWrapper = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -16,6 +17,10 @@ export const FormInput = styled.input`
 
   border-radius: 6px;
   border: 2px solid #000000;
+
+  &::placeholder {
+    color: #00000066;
+  }
 `;
 export const ButtonsListWrapper = styled.ul`
   display: flex;

@@ -6,11 +6,13 @@ import { SortingPageContainer } from './SortingPage.styled';
 
 export const SortingPage = () => {
   const { allParcels } = useParcels();
-  const [currentParcel, setCurrentParcel] = useState({});
+  const [currentParcel, setCurrentParcel] = useState({
+    'Visit Name': '-',
+    'Driver Name': '-',
+  });
 
   const getParcel = parcelID => {
     const parcel = allParcels.find(parcel => parcel['Visit Name'] === parcelID);
-    console.log(parcel);
 
     setCurrentParcel(
       parcel || { 'Visit Name': parcelID, 'Driver Name': 'Немає в маршруті' }
@@ -19,7 +21,7 @@ export const SortingPage = () => {
 
   return (
     <SortingPageContainer>
-      <ParcelInfo currentParcel={currentParcel || ''} />
+      <ParcelInfo currentParcel={currentParcel} />
       <SearchForm getParcel={getParcel} />
     </SortingPageContainer>
   );
