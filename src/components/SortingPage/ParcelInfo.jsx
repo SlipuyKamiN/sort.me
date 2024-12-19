@@ -7,7 +7,7 @@ export const ParcelInfo = ({ currentParcel }) => {
         ШК: <span> {currentParcel['Visit Name'] || '-'}</span>
       </ParcelTitle>
       <DriverNameLabel>
-        <span>Кур'єр: </span>
+        <span>Маршут: </span>
         <DriverName> {currentParcel['Driver Name'] || '-'} </DriverName>
       </DriverNameLabel>
       {/* <p>Знайдено: "counter"</p> */}

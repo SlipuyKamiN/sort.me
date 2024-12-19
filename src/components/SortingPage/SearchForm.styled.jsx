@@ -19,6 +19,8 @@ export const FormInput = styled.input`
 `;
 export const ButtonsListWrapper = styled.ul`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   gap: 10px;
 `;
@@ -27,16 +29,17 @@ export const Button = styled.button`
   display: block;
   cursor: pointer;
 
-  width: 120px;
-  height: 30px;
+  width: 140px;
 
-  padding: 5px 10px;
+  padding: 10px;
   border: 1px solid #0a0a11;
   border-radius: 6px;
 
   font-weight: 600;
   font-size: 18px;
 
+  color: ${colors.primaryBlack};
+  background-color: transparent;
   transition: ${transition.duration};
 
   &:hover,
@@ -46,8 +49,6 @@ export const Button = styled.button`
   }
 `;
 
-export const SearchButton = styled(Button)`
-  height: 30px;
-`;
+export const SearchButton = styled(Button)``;
 
 export const RefreshButton = styled(Button)``;
