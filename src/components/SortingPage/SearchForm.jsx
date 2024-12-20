@@ -8,7 +8,6 @@ import {
   SearchButton,
   SearchFormWrapper,
 } from './SearchForm.styled';
-import { useParcels } from 'context/ParcelsContext';
 import { useEffect } from 'react';
 
 const validationSchema = yup.object().shape({
@@ -16,8 +15,6 @@ const validationSchema = yup.object().shape({
 });
 
 export const SearchForm = ({ getParcel }) => {
-  const { selectedCityData, setCityID } = useParcels();
-
   const { register, handleSubmit, reset, setFocus, control, setValue } =
     useForm({
       resolver: yupResolver(validationSchema),
@@ -70,10 +67,7 @@ export const SearchForm = ({ getParcel }) => {
       />
       <ButtonsListWrapper>
         <li>
-          <RefreshButton
-            type="button"
-            onClick={() => setCityID(selectedCityData.cityID)}
-          >
+          <RefreshButton type="button" onClick={() => window.location.reload()}>
             Оновити
           </RefreshButton>
         </li>
