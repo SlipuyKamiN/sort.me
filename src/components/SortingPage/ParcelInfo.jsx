@@ -1,6 +1,8 @@
 import { DriverName, DriverNameLabel, ParcelTitle } from './ParcelInfo.styled';
 
 export const ParcelInfo = ({ currentParcel }) => {
+  console.log(currentParcel);
+
   return (
     <section>
       <ParcelTitle>

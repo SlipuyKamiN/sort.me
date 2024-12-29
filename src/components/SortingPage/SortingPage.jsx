@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ParcelInfo } from './ParcelInfo';
 import { SearchForm } from './SearchForm';
 import { useParcels } from 'context/ParcelsContext';
 import { SortingPageContainer } from './SortingPage.styled';
+import { lockScreen } from 'helpers/screenLock';
 
 export const SortingPage = () => {
   const { allParcels } = useParcels();
@@ -12,12 +13,20 @@ export const SortingPage = () => {
   });
 
   const getParcel = parcelID => {
-    const parcel = allParcels.find(parcel => parcel['Visit Name'] === parcelID);
+    const parcel = allParcels.find(
+      parcel =>
+        parcel['Visit Name'] === parcelID ||
+        parcel['Visit Name'].includes(parcelID)
+    );
 
     setCurrentParcel(
       parcel || { 'Visit Name': parcelID, 'Driver Name': 'Немає в маршруті' }
     );
   };
+
+  useEffect(() => {
+    lockScreen();
+  }, []);
 
   return (
     <SortingPageContainer>

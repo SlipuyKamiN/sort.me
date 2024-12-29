@@ -44,6 +44,7 @@ export const ParcelsProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('cityID', JSON.stringify(cityID));
+
     setSelectedCityData(citiesList.find(city => city.cityID === cityID));
   }, [cityID]);
 

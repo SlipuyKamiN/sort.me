@@ -35,7 +35,6 @@ export const SearchForm = ({ getParcel }) => {
       control={control}
       onSubmit={handleSubmit(handleFormSubmit)}
     >
-      {/* <label htmlFor="parcelID">Відскануйте ШК:</label> */}
       <FormInput
         type="text"
         {...register('parcelID')}
