@@ -3,6 +3,7 @@ import { Form } from 'react-hook-form';
 import { colors, transition } from 'styles/common/vars';
 
 export const SearchFormWrapper = styled(Form)`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -17,10 +18,32 @@ export const FormInput = styled.input`
   border-radius: 6px;
   border: 2px solid #000000;
 
+  transition: ${transition.duration};
+
   &::placeholder {
     color: #00000066;
   }
+
+  &:disabled {
+    background-color: #00000066;
+  }
 `;
+
+export const LoadingBlinker = styled.span`
+  background-color: tomato;
+
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 24px;
+  width: 20px;
+  border-radius: 2px;
+  background: #bce4ff;
+  box-shadow: 0 0 15px #bce4ff;
+  animation: blink 6s infinite;
+`;
+
 export const ButtonsListWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;

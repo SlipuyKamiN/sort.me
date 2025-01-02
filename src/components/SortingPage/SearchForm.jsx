@@ -4,17 +4,20 @@ import * as yup from 'yup';
 import {
   ButtonsListWrapper,
   FormInput,
+  LoadingBlinker,
   RefreshButton,
   SearchButton,
   SearchFormWrapper,
 } from './SearchForm.styled';
 import { useEffect } from 'react';
+import { useParcels } from 'context/ParcelsContext';
 
 const validationSchema = yup.object().shape({
   parcelID: yup.string().required(),
 });
 
 export const SearchForm = ({ getParcel }) => {
+  const { isLoading } = useParcels();
   const { register, handleSubmit, reset, setFocus, control, setValue } =
     useForm({
       resolver: yupResolver(validationSchema),
@@ -60,10 +63,12 @@ export const SearchForm = ({ getParcel }) => {
           }
         }}
         maxLength={14}
-        placeholder="Відскануйте ШК"
+        placeholder={isLoading ? 'Завантаження...' : 'Відскануйте ШК'}
         required
         autoFocus
+        disabled={isLoading}
       />
+      {isLoading && <LoadingBlinker />}
       <ButtonsListWrapper>
         <li>
           <RefreshButton type="button" onClick={() => window.location.reload()}>

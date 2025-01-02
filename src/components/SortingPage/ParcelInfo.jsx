@@ -10,7 +10,6 @@ export const ParcelInfo = ({ currentParcel }) => {
         <span>Маршут: </span>
         <DriverName> {currentParcel['Driver Name']} </DriverName>
       </DriverNameLabel>
-      {/* <p>Знайдено: "counter"</p> */}
     </section>
   );
 };
