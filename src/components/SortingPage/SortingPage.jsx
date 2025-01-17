@@ -13,11 +13,13 @@ export const SortingPage = () => {
   });
 
   const getParcel = parcelID => {
-    const parcel = allParcels.find(
-      parcel =>
+    const parcel = allParcels.find(parcel => {
+      return (
         parcel['Visit Name'] === parcelID ||
-        parcel['Visit Name'].includes(parcelID)
-    );
+        parcel['Visit Name']?.includes(parcelID) ||
+        false
+      );
+    });
 
     setCurrentParcel(
       parcel || { 'Visit Name': parcelID, 'Driver Name': 'Немає в маршруті' }
