@@ -29,9 +29,13 @@ export const FormInput = styled.input`
   }
 `;
 
-export const LoadingBlinker = styled.span`
-  background-color: tomato;
+export const ErrMessage = styled.span`
+  max-width: 100%;
+  font-size: 14px;
+  color: red;
+`;
 
+export const LoadingBlinker = styled.span`
   display: block;
   position: absolute;
   top: 10px;

@@ -3,6 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {
   ButtonsListWrapper,
+  ErrMessage,
   FormInput,
   LoadingBlinker,
   RefreshButton,
@@ -13,15 +14,31 @@ import { useEffect } from 'react';
 import { useParcels } from 'context/ParcelsContext';
 
 const validationSchema = yup.object().shape({
-  parcelID: yup.string().required(),
+  parcelID: yup
+    .string()
+    .required('Відскануйте номер ШК')
+    .test(
+      'length-4-or-14',
+      'Номер ШК має містити 4 або 14 символів',
+      value => value && (value.length === 4 || value.length === 14)
+    )
+    .max(14, 'Довжина рядка не може перевищувати 14 символів')
+    .matches(/[^a-zA-Z]/, 'Номер ШК, повинен містити цифри'),
 });
 
 export const SearchForm = ({ getParcel }) => {
   const { isLoading } = useParcels();
-  const { register, handleSubmit, reset, setFocus, control, setValue } =
-    useForm({
-      resolver: yupResolver(validationSchema),
-    });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setFocus,
+    control,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
 
   const handleFormSubmit = ({ parcelID }) => {
     getParcel(parcelID.trim());
@@ -42,23 +59,23 @@ export const SearchForm = ({ getParcel }) => {
         type="text"
         {...register('parcelID')}
         id="parcelID"
-        onInput={e => {
-          setValue('parcelID', e.target.value);
-          if (e.target.value.length >= 14) {
+        onInput={({ target: { value } }) => {
+          setValue('parcelID', value);
+          if (value.length >= 14) {
             handleSubmit(handleFormSubmit)();
           }
         }}
-        onKeyUp={e => {
-          setValue('parcelID', e.target.value);
+        onKeyUp={({ target: { value } }) => {
+          setValue('parcelID', value);
 
-          if (e.target.value.length >= 14) {
+          if (value.length >= 14) {
             handleSubmit(handleFormSubmit)();
           }
         }}
-        onPaste={e => {
-          setValue('parcelID', e.target.value);
+        onPaste={({ target: { value } }) => {
+          setValue('parcelID', value);
 
-          if (e.target.value.length >= 14) {
+          if (value.length >= 14) {
             handleSubmit(handleFormSubmit)();
           }
         }}
@@ -68,6 +85,7 @@ export const SearchForm = ({ getParcel }) => {
         autoFocus
         disabled={isLoading}
       />
+      {errors.parcelID && <ErrMessage>{errors.parcelID.message}</ErrMessage>}
       {isLoading && <LoadingBlinker />}
       <ButtonsListWrapper>
         <li>
