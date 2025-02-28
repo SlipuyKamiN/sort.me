@@ -1,4 +1,10 @@
 import styled from '@emotion/styled';
+import { colors } from 'styles/common/vars';
+
+export const RootWrapper = styled.div`
+  color: ${colors.primaryAccent};
+  background-color: ${colors.secondary};
+`;
 
 export const Container = styled.div`
   position: relative;

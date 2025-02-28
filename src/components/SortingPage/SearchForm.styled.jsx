@@ -16,23 +16,24 @@ export const FormInput = styled.input`
   font-size: 18px;
 
   border-radius: 6px;
-  border: 2px solid #000000;
+  border: 2px solid ${colors.primaryAccent};
+  background-color: transparent;
 
   transition: ${transition.duration};
 
   &::placeholder {
-    color: #00000066;
+    color: ${colors.semiGray};
   }
 
   &:disabled {
-    background-color: #00000066;
+    background-color: ${colors.semiGray};
   }
 `;
 
 export const ErrMessage = styled.span`
   max-width: 100%;
   font-size: 14px;
-  color: red;
+  color: ${colors.warnRed};
 `;
 
 export const LoadingBlinker = styled.span`
@@ -63,19 +64,19 @@ export const Button = styled.button`
   width: 140px;
 
   padding: 10px;
-  border: 1px solid #0a0a11;
+  border: 2px solid ${colors.primaryAccent};
   border-radius: 6px;
 
   font-weight: 600;
   font-size: 18px;
 
-  color: ${colors.primaryBlack};
+  color: ${colors.primaryAccent};
   background-color: transparent;
   transition: ${transition.duration};
 
   &:hover,
   &:focus {
-    color: ${colors.primaryWhite};
+    color: ${colors.secondary};
     background-color: ${colors.gray};
   }
 `;

@@ -26,7 +26,7 @@ export const CityLink = styled(Link)`
   max-width: 340px;
 
   padding: 10px;
-  border: 1px solid #0a0a11;
+  border: 1px solid ${colors.primaryAccent};
   border-radius: 6px;
 
   font-weight: 600;

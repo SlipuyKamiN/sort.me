@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { colors } from 'styles/common/vars';
 
 export const Header = styled.header`
   width: 100%;
@@ -12,10 +13,10 @@ export const Header = styled.header`
   align-items: center;
   gap: 20px;
   height: 60px;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid ${colors.primaryAccent};
   backdrop-filter: blur(10px);
 
-  box-shadow: #000000 0px 0px 10px;
+  box-shadow: ${colors.primaryAccent} 0px 0px 10px;
 `;
 
 export const LogoLink = styled(Link)`

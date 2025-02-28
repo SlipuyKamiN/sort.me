@@ -3,7 +3,6 @@ import { useParcels } from 'context/ParcelsContext';
 
 export const PageHeader = () => {
   const { selectedCityData, setCityID } = useParcels();
-  // console.log(selectedCityData);
 
   return (
     <Header>

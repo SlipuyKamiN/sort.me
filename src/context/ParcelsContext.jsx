@@ -50,7 +50,12 @@ export const ParcelsProvider = ({ children }) => {
 
   return (
     <ParcelsContext.Provider
-      value={{ allParcels, setCityID, selectedCityData, isLoading }}
+      value={{
+        allParcels,
+        setCityID,
+        selectedCityData,
+        isLoading,
+      }}
     >
       {children}
     </ParcelsContext.Provider>
