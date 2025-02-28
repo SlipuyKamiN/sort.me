@@ -11,11 +11,12 @@ export const Header = styled.header`
   left: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
   height: 60px;
-  border-bottom: 3px solid ${colors.primaryAccent};
   backdrop-filter: blur(10px);
 
+  border-bottom: 3px solid ${colors.primaryAccent};
   box-shadow: ${colors.primaryAccent} 0px 0px 10px;
 `;
 
@@ -24,4 +25,11 @@ export const LogoLink = styled(Link)`
   font-size: 24px;
   font-weight: 600;
   text-transform: uppercase;
+`;
+
+export const DarkModeToggler = styled.button`
+  border-color: none;
+  border: none !important; //костиль
+  background-color: transparent;
+  color: ${colors.primaryAccent};
 `;

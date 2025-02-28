@@ -14,7 +14,7 @@ const SharedLayout = () => {
 
   return (
     <RootWrapper className={isDarkMode && 'darkMode'}>
-      <PageHeader toggleDarkMode={toggleDarkMode} />
+      <PageHeader toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
       <Container>
         <Suspense fallback={<>"Loading.."</>}>
           <Outlet />

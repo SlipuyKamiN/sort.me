@@ -1,7 +1,8 @@
-import { Header, LogoLink } from './Header.styled';
+import { DarkModeToggler, Header, LogoLink } from './Header.styled';
 import { useParcels } from 'context/ParcelsContext';
+import { BsMoonStars, BsSun } from 'react-icons/bs';
 
-export const PageHeader = ({ toggleDarkMode }) => {
+export const PageHeader = ({ toggleDarkMode, isDarkMode }) => {
   const { selectedCityData, setCityID } = useParcels();
 
   return (
@@ -9,7 +10,9 @@ export const PageHeader = ({ toggleDarkMode }) => {
       <LogoLink to="/" onClick={() => setCityID('')}>
         SORT.{selectedCityData?.cityName || 'ME'}
       </LogoLink>
-      <button onClick={toggleDarkMode}>*</button>
+      <DarkModeToggler onClick={toggleDarkMode}>
+        {isDarkMode ? <BsSun size={20} /> : <BsMoonStars size={20} />}
+      </DarkModeToggler>
     </Header>
   );
 };
