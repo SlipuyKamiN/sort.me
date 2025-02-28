@@ -9,7 +9,7 @@ const ParcelsContext = createContext({
 
 export const useParcels = () => useContext(ParcelsContext);
 
-const checkLocalStorage = key => {
+export const checkLocalStorage = key => {
   try {
     const item = localStorage.getItem(key);
 
