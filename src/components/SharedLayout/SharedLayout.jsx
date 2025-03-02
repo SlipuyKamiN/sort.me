@@ -1,8 +1,10 @@
 import { Container, RootWrapper } from './SharedLayout.styled';
 import { PageHeader } from 'components/Header/Header';
 import { checkLocalStorage } from 'context/ParcelsContext';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
+
+const bodyClassList = document.getElementsByTagName('body')[0].classList;
 
 const SharedLayout = () => {
   const [isDarkMode, setDarkMode] = useState(checkLocalStorage('darkMode'));
@@ -11,6 +13,12 @@ const SharedLayout = () => {
     setDarkMode(!isDarkMode);
     localStorage.setItem('darkMode', JSON.stringify(!isDarkMode));
   };
+
+  useEffect(() => {
+    isDarkMode
+      ? bodyClassList.add('darkMode')
+      : bodyClassList.remove('darkMode');
+  }, [isDarkMode]);
 
   return (
     <RootWrapper className={isDarkMode && 'darkMode'}>
