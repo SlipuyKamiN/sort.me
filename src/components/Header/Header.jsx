@@ -6,11 +6,11 @@ export const PageHeader = ({ toggleDarkMode, isDarkMode }) => {
   const { selectedCityData, setCityID } = useParcels();
 
   return (
-    <Header>
+    <Header className="darkMode">
       <LogoLink to="/" onClick={() => setCityID('')}>
         SORT.{selectedCityData?.cityName || 'ME'}
       </LogoLink>
-      <DarkModeToggler onClick={toggleDarkMode}>
+      <DarkModeToggler onClick={toggleDarkMode} className="darkMode">
         {isDarkMode ? <BsSun size={20} /> : <BsMoonStars size={20} />}
       </DarkModeToggler>
     </Header>

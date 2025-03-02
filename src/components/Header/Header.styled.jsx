@@ -28,8 +28,6 @@ export const LogoLink = styled(Link)`
 `;
 
 export const DarkModeToggler = styled.button`
-  border-color: none;
-  border: none !important; //костиль
   background-color: transparent;
   color: ${colors.primaryAccent};
 `;

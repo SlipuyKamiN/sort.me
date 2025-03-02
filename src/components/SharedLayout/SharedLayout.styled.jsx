@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { colors, transition } from 'styles/common/vars';
 
-export const RootWrapper = styled.div`
+export const RootWrapper = styled.main`
   width: 100%;
-  min-height: 100lvh;
+  min-height: 100vh;
 
   color: ${colors.primaryAccent};
   background-color: ${colors.secondary};
@@ -41,18 +41,19 @@ export const RootWrapper = styled.div`
   &.darkMode {
     color: ${colors.secondary};
     background-color: ${colors.primaryAccent};
-    header {
+
+    header.darkMode {
       border-bottom: 3px solid ${colors.secondary};
       box-shadow: ${colors.secondary} 0px 0px 10px;
     }
 
-    button {
-      border: 2px solid ${colors.secondary};
+    button.darkMode {
+      border-color: ${colors.secondary};
 
       color: ${colors.secondary};
     }
 
-    input {
+    input.darkMode {
       color: ${colors.secondary};
       border-color: ${colors.secondary};
 

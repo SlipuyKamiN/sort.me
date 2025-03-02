@@ -56,6 +56,7 @@ export const SearchForm = ({ getParcel }) => {
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       <FormInput
+        className="darkMode"
         type="text"
         {...register('parcelID')}
         id="parcelID"
@@ -89,12 +90,18 @@ export const SearchForm = ({ getParcel }) => {
       {isLoading && <LoadingBlinker />}
       <ButtonsListWrapper>
         <li>
-          <RefreshButton type="button" onClick={() => window.location.reload()}>
+          <RefreshButton
+            className="darkMode"
+            type="button"
+            onClick={() => window.location.reload()}
+          >
             Оновити
           </RefreshButton>
         </li>
         <li>
-          <SearchButton type="submit">Знайти</SearchButton>
+          <SearchButton className="darkMode" type="submit">
+            Знайти
+          </SearchButton>
         </li>
       </ButtonsListWrapper>
     </SearchFormWrapper>
