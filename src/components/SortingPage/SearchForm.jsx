@@ -42,7 +42,10 @@ export const SearchForm = ({ getParcel }) => {
 
   const handleFormSubmit = ({ parcelID }) => {
     getParcel(parcelID.trim());
-    setTimeout(reset, 100);
+    setTimeout(() => {
+      reset();
+      setFocus('parcelID');
+  }, 100);
   };
 
   useEffect(() => {
@@ -54,9 +57,9 @@ export const SearchForm = ({ getParcel }) => {
       autoComplete="off"
       control={control}
       onSubmit={handleSubmit(handleFormSubmit)}
-onKeyDown={(e)=>{
-if(e.key === "Enter") {e.preventDefault();}
-}}
+      onKeyDown={(e) => {
+        if(e.key === "Enter") {e.preventDefault();}
+      }}
     >
       <FormInput
         className="darkMode"
