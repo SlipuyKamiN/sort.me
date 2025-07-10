@@ -41,15 +41,19 @@ export const SearchForm = ({ getParcel }) => {
   });
 
   const handleFormSubmit = ({ parcelID }) => {
-    getParcel(parcelID.trim());
     setTimeout(() => {
+      getParcel(parcelID.trim());
       reset();
-      setFocus('parcelID');
-  }, 100);
+      requestAnimationFrame(() => {
+        setFocus('parcelID');
+      });
+    }, 125);
   };
 
   useEffect(() => {
-    setFocus('parcelID');
+    requestAnimationFrame(() => {
+      setFocus('parcelID');
+    });
   }, [setFocus]);
 
   return (
@@ -57,8 +61,10 @@ export const SearchForm = ({ getParcel }) => {
       autoComplete="off"
       control={control}
       onSubmit={handleSubmit(handleFormSubmit)}
-      onKeyDown={(e) => {
-        if(e.key === "Enter") {e.preventDefault();}
+      onKeyDown={e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+        }
       }}
     >
       <FormInput
