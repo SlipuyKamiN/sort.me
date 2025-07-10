@@ -54,6 +54,9 @@ export const SearchForm = ({ getParcel }) => {
       autoComplete="off"
       control={control}
       onSubmit={handleSubmit(handleFormSubmit)}
+onKeyDown={(e)=>{
+if(e.key === "Enter") {e.preventDefault();}
+}}
     >
       <FormInput
         className="darkMode"
