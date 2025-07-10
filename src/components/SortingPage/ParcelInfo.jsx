@@ -8,7 +8,9 @@ export const ParcelInfo = ({ currentParcel }) => {
       </ParcelTitle>
       <DriverNameLabel>
         <span>Маршут: </span>
-        <DriverName> {currentParcel['Driver Name']} </DriverName>
+        <DriverName>
+          {currentParcel['Driver Name'] || currentParcel['Vehicle plate']}
+        </DriverName>
       </DriverNameLabel>
     </section>
   );
