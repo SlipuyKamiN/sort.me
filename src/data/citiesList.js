@@ -17,6 +17,11 @@ export const citiesList = [
     sheetLink: `${BASE_URL}-1vT-QrhttIZ3rmvWObjgCspeBn_FrpAVeqRbhhoORbPhAY7_d2zv0dd2y0Mg2QXIHXYccdn3OquDiKl2/pub?output=csv`,
   },
   {
+    cityID: 'Mannheim',
+    cityName: 'Mannheim',
+    sheetLink: `${BASE_URL}-1vTQjhncVxHTmoJK8BtJrYjPvBwr4sBRaeVyMZfg9s6HLyr4iKKkmjk2stKs80MCulMRaXvZviaCF7WT/pub?output=csv`,
+  },
+  {
     cityID: 'Dresden',
     cityName: 'Dresden',
     sheetLink: `${BASE_URL}-1vQEKdT6hC1awC4pzOvFzBV2RCNZlcPid-Z5EwLDXj1x-qPwQNUOk0ckkpl-fkFFza9_mguWvuP_8thM/pub?output=csv`,
@@ -55,5 +60,20 @@ export const citiesList = [
     cityID: 'Frankfurt-am-Main',
     cityName: 'Frankfurt',
     sheetLink: `${BASE_URL}-1vRCj1gZivsOLKXklUF4JVE2WfKPJxfl71hpxsOY0tRfyUcdtCMT93FYUQehiUbFxmIg1XJsOZNWWpv8/pub?output=csv`,
+  },
+  {
+    cityID: 'Stuttgart',
+    cityName: 'Stuttgart',
+    sheetLink: `${BASE_URL}-1vS4f28bT5BY-TPMDn9ZBkQiSqpqYDSom0S1Bju10oT1RuQVq2nCi1yS3sKSw_KhejWbOViDRp6mG7kB/pub?output=csv`,
+  },
+  {
+    cityID: 'Wuppertal',
+    cityName: 'Wuppertal',
+    sheetLink: `${BASE_URL}-1vQtg8Fia4C7PoYlwuF58vkLttOLvhr4rmwMO0DVJ4uC8KSWABBKB6Nt_1VfOs7xYmRq6M6LINpNjb8-/pub?output=csv`,
+  },
+  {
+    cityID: 'TERMINAL',
+    cityName: 'TERMINAL',
+    sheetLink: `${BASE_URL}-1vQkJDPXmeMHrl15zvaM1FQohvRCgANfMNZGcYzdjWBLj8D-EkKD9ygX-hAVk-Z7gwhNPYLM2MEsdDeE/pub?output=csv`,
   },
 ];
