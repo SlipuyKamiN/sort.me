@@ -1,3 +1,4 @@
+import { CheckingPage } from 'components/CheckingPage/CheckingPage';
 import { HomePage } from 'components/Home/Home';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import { SortingPage } from 'components/SortingPage/SortingPage';
@@ -9,6 +10,7 @@ export const App = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<HomePage />}></Route>
         <Route path="sorting/:cityName" element={<SortingPage />}></Route>
+        <Route path="checking/:cityName" element={<CheckingPage />}></Route>
         <Route path="404" element={<div>404</div>} />
         {/* <Route path="*" element={<Navigate to="404" />}></Route> */}
       </Route>
