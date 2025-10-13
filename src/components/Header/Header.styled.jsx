@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { colors } from 'styles/common/vars';
+import { colors, transition } from 'styles/common/vars';
 
 export const Header = styled.header`
   width: 100%;
@@ -30,11 +30,18 @@ export const LogoLink = styled(Link)`
   font-weight: 600;
   text-transform: uppercase;
 
+  transition: ${transition.duration};
+
   &.modeToggler {
     pointer-events: none;
   }
 
   @media screen and (min-width: 768px) {
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
     &.modeToggler {
       pointer-events: all;
     }
