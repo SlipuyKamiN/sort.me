@@ -16,6 +16,7 @@ export const PageHeader = ({ toggleDarkMode, isDarkMode }) => {
     <Header className="darkMode">
       <LogoWrapper>
         <LogoLink
+          className="modeToggler"
           to={
             selectedCityData?.cityName
               ? `/${mode === 'CHECK' ? 'sorting' : 'checking'}/${

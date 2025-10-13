@@ -24,6 +24,8 @@ export const CheckLists = styled.ul`
   padding: 20px 0;
 
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: space-between;
 
   line-height: 1.5;

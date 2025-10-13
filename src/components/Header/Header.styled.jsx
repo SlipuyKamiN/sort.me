@@ -29,6 +29,16 @@ export const LogoLink = styled(Link)`
   font-size: 24px;
   font-weight: 600;
   text-transform: uppercase;
+
+  &.modeToggler {
+    pointer-events: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    &.modeToggler {
+      pointer-events: all;
+    }
+  }
 `;
 
 export const DarkModeToggler = styled.button`
