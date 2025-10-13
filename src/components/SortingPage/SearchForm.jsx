@@ -12,7 +12,6 @@ import {
 } from './SearchForm.styled';
 import { useEffect } from 'react';
 import { useParcels } from 'context/ParcelsContext';
-import { Link } from 'react-router-dom';
 
 const validationSchema = yup.object().shape({
   parcelID: yup
@@ -111,11 +110,6 @@ export const SearchForm = ({ getParcel }) => {
             Оновити
           </RefreshButton>
         </li>
-        {/* <li>
-          <RefreshButton className="darkMode" type="button">
-            <Link to={'/checking/Berlin'}>CHECK.ME</Link>
-          </RefreshButton>
-        </li> */}
         <li>
           <SearchButton className="darkMode" type="submit">
             Знайти

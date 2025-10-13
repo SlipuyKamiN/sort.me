@@ -43,13 +43,16 @@ export const getLostedParcels = ({
   sortedScannedParcels,
 }) => {
   const mainRouteName = getScannedRouteNames(sortedScannedParcels)[0];
+  const clearSet = new Set(clearArray);
 
-  const losted = allParcels
-    .filter(parcel => parcel['Visit Name'].match(pattern))
-    .filter(parcel => parcel['Vehicle plate'] === mainRouteName)
-    .filter(parcel => !clearArray.includes(parcel['Visit Name']));
-
-  return losted;
+  return allParcels.filter(parcel => {
+    const name = parcel['Visit Name'];
+    return (
+      name?.match(pattern) &&
+      parcel['Vehicle plate'] === mainRouteName &&
+      !clearSet.has(name)
+    );
+  });
 };
 
 export const getExtraParcels = ({
@@ -58,10 +61,14 @@ export const getExtraParcels = ({
   sortedScannedParcels,
 }) => {
   const mainRouteName = getScannedRouteNames(sortedScannedParcels)[0];
-  const extra = allParcels
-    .filter(parcel => parcel['Visit Name'].match(pattern))
-    .filter(parcel => parcel['Vehicle plate'] !== mainRouteName)
-    .filter(parcel => clearArray.includes(parcel['Visit Name']));
+  const clearSet = new Set(clearArray);
 
-  return extra;
+  return allParcels.filter(parcel => {
+    const name = parcel['Visit Name'];
+    return (
+      name?.match(pattern) &&
+      parcel['Vehicle plate'] !== mainRouteName &&
+      clearSet.has(name)
+    );
+  });
 };

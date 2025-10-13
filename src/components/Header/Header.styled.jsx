@@ -20,6 +20,10 @@ export const Header = styled.header`
   box-shadow: ${colors.primaryAccent} 0px 0px 10px;
 `;
 
+export const LogoWrapper = styled.span`
+  display: flex;
+`;
+
 export const LogoLink = styled(Link)`
   display: block;
   font-size: 24px;
