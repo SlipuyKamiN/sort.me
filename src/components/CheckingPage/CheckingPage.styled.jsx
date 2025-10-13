@@ -27,4 +27,9 @@ export const CheckLists = styled.ul`
   justify-content: space-between;
 
   line-height: 1.5;
+
+  a:hover,
+  a:focus {
+    opacity: 0.5;
+  }
 `;
