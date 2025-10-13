@@ -8,10 +8,10 @@ import {
   LoadingBlinker,
   RefreshButton,
   SearchButton,
-  SearchFormWrapper,
 } from '../SortingPage/SearchForm.styled';
 import { useEffect } from 'react';
 import { useParcels } from 'context/ParcelsContext';
+import { CheckingFormWrapper } from './CheckingPage.styled';
 
 const validationSchema = yup.object().shape({
   dirtyText: yup
@@ -26,10 +26,10 @@ export const CheckingForm = ({ checkRoute }) => {
     register,
     handleSubmit,
     reset,
-    control,
     setFocus,
     formState: { errors },
   } = useForm({
+    mode: 'onChange',
     resolver: yupResolver(validationSchema),
   });
 
@@ -46,20 +46,14 @@ export const CheckingForm = ({ checkRoute }) => {
   }, [setFocus]);
 
   return (
-    <SearchFormWrapper
+    <CheckingFormWrapper
       autoComplete="off"
-      control={control}
       onSubmit={handleSubmit(handleFormSubmit)}
-      onKeyDown={e => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-        }
-      }}
     >
       <FormInput
+        {...register('dirtyText')}
         className="darkMode"
         type="text"
-        {...register('dirtyText')}
         id="dirtyText"
         placeholder={isLoading ? 'Завантаження...' : 'Внесіть список ШК'}
         required
@@ -84,6 +78,6 @@ export const CheckingForm = ({ checkRoute }) => {
           </SearchButton>
         </li>
       </ButtonsListWrapper>
-    </SearchFormWrapper>
+    </CheckingFormWrapper>
   );
 };

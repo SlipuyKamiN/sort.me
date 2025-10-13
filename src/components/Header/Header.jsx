@@ -7,9 +7,13 @@ import {
 import { useParcels } from 'context/ParcelsContext';
 import { useState } from 'react';
 import { BsMoonStars, BsSun } from 'react-icons/bs';
+import { useLocation } from 'react-router-dom';
 
 export const PageHeader = ({ toggleDarkMode, isDarkMode }) => {
-  const [mode, setMode] = useState('SORT');
+  const { pathname } = useLocation();
+  const [mode, setMode] = useState(() =>
+    pathname.includes('checking') ? 'CHECK' : 'SORT'
+  );
   const { selectedCityData, setCityID } = useParcels();
 
   return (

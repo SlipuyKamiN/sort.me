@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
 
+export const CheckingFormWrapper = styled.form`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
 export const RoutesList = styled.ul`
   display: flex;
   align-items: center;
