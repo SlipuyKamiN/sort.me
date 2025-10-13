@@ -16,8 +16,8 @@ import { useParcels } from 'context/ParcelsContext';
 const validationSchema = yup.object().shape({
   dirtyText: yup
     .string()
-    .required('Відскануйте номер ШК')
-    .min(14, 'Довжина рядка не може перевищувати 14 символів'),
+    .required('Внесіть список ШК')
+    .min(14, 'Довжина рядка має перевищувати 14 символів'),
 });
 
 export const CheckingForm = ({ checkRoute }) => {
@@ -61,7 +61,7 @@ export const CheckingForm = ({ checkRoute }) => {
         type="text"
         {...register('dirtyText')}
         id="dirtyText"
-        placeholder={isLoading ? 'Завантаження...' : 'Відскануйте ШК'}
+        placeholder={isLoading ? 'Завантаження...' : 'Внесіть список ШК'}
         required
         autoFocus
         disabled={isLoading}
