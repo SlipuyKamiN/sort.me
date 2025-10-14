@@ -48,6 +48,7 @@ export const CheckLists = styled.ul`
 `;
 
 export const ListItem = styled.li`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -84,5 +85,21 @@ export const LostedCheckbox = styled.input`
     left: 0;
     font-size: 24px;
     opacity: 0.8;
+  }
+`;
+
+export const ClipboardIcon = styled.span`
+  z-index: 1;
+  position: absolute;
+  pointer-events: none;
+  right: -35px;
+  top: 0;
+
+  opacity: 0;
+  transition: ${transition.duration};
+
+  &.copied {
+    opacity: 1;
+    transition: none;
   }
 `;

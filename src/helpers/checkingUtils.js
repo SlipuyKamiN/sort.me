@@ -72,3 +72,13 @@ export const getExtraParcels = ({
     );
   });
 };
+
+export const handleCopy = async (parcelID, setCopied) => {
+  try {
+    await navigator.clipboard.writeText(parcelID);
+    setCopied(parcelID);
+    setTimeout(() => setCopied(''), 1000);
+  } catch (err) {
+    console.error('Не вдалося скопіювати:', err);
+  }
+};
