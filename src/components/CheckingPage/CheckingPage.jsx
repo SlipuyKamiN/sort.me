@@ -6,6 +6,7 @@ import { CheckingForm } from './CheckingForm';
 import { RouteInfo } from './RouteInfo';
 import { LostedList } from './LostedList';
 import { ExtraList } from './ExtraList';
+import { CheckLists, CheckTitle } from './CheckingPage.styled';
 import {
   extractParcels,
   getExtraParcels,
@@ -13,7 +14,6 @@ import {
   getScannedRouteNames,
   sortParcelsByRoutes,
 } from 'helpers/checkingUtils';
-import { CheckLists, CheckTitle } from './CheckingPage.styled';
 
 export const CheckingPage = () => {
   const { allParcels } = useParcels();

@@ -1,18 +1,29 @@
+import { GoLinkExternal } from 'react-icons/go';
+
+import { ListItem, LostedCheckbox } from './CheckingPage.styled';
+
 export const LostedList = ({ lostedParcels }) => {
   return (
     <li>
       <h3>До сканування ({lostedParcels.length}):</h3>
       <ul>
         {lostedParcels.map(parcel => (
-          <li key={parcel['Visit Name']}>
+          <ListItem key={parcel['Visit Name']}>
+            <LostedCheckbox
+              type="checkbox"
+              name="checkbox"
+              id="parcel"
+              className="darkMode"
+            />
+            <p>{parcel['Visit Name']}</p>
             <a
               href={`https://novapost.com/uk-de/tracking/${parcel['Visit Name']}`}
               target="_blank"
               rel="noopener nofollow noreferrer"
             >
-              {parcel['Visit Name']}
+              <GoLinkExternal size={16} />
             </a>
-          </li>
+          </ListItem>
         ))}
       </ul>
     </li>
