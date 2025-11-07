@@ -47,6 +47,7 @@ export const CheckingForm = ({ checkRoute }) => {
 
   return (
     <CheckingFormWrapper
+      className="plausible-event-name=check"
       autoComplete="off"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
