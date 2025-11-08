@@ -34,6 +34,7 @@ export const CheckingForm = ({ checkRoute }) => {
   });
 
   const handleFormSubmit = ({ dirtyText }) => {
+    window.plausible?.('check');
     checkRoute(dirtyText);
 
     reset();
@@ -47,7 +48,6 @@ export const CheckingForm = ({ checkRoute }) => {
 
   return (
     <CheckingFormWrapper
-      className="plausible-event-name=check"
       autoComplete="off"
       onSubmit={handleSubmit(handleFormSubmit)}
     >

@@ -41,6 +41,8 @@ export const SearchForm = ({ getParcel }) => {
   });
 
   const handleFormSubmit = ({ parcelID }) => {
+    window.plausible?.('sort');
+
     setTimeout(() => {
       getParcel(parcelID.trim());
       reset();
@@ -58,7 +60,6 @@ export const SearchForm = ({ getParcel }) => {
 
   return (
     <SearchFormWrapper
-      className="plausible-event-name=sort"
       autoComplete="off"
       control={control}
       onSubmit={handleSubmit(handleFormSubmit)}
